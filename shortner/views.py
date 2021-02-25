@@ -30,7 +30,7 @@ def link_shortner(request):
         #return HttpResponse(Sort)
         return render(request,'result.html', {'longLink':longLink, 'shortLink':shortLink})
 
-    return render(request, 'index.html', {'form':form})
+    return render(request, 'test.html', {'form':form})
 
 #Link Redirect to Orginal Link
 def link_redirect(request, alias):

@@ -6,16 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load qr_code %}
     <title>Link Shortner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
 <body>
-    <form action="">
-        <input type="text" value="{{longLink}}">
-        <br>
-        <input type="text" id="myvalue" value="{{shortLink}}">
-        <button  type="button" onclick="copyToClipboard()">Copy</button>
-        <br>
-        {% qr_from_text "{{shortLink}}" size="M" %}
-    </form>
+    <div class="columns is-vcentered">
+        <div class="column">
+          First column
+        </div>
+        <div class="column ">
+            <div class="box">
+                <form action="">
+                    <label class="label">Orginal Link</label>
+                    <input  class="input is-primary" type="url"  value="{{longLink}}">
+                    <br>
+                    <br>
+                    <label class="label">Shortner Link</label>
+                    <input  class="input is-primary" type="url"  id="myvalue" value="{{shortLink}}">
+                    <button class="button is-light mt-3"  type="button" onclick="copyToClipboard()">Copy</button>
+                    <br>
+                    <p class="has-text-centered	">{% qr_from_text "{{shortLink}}" size=5 version=3 image_format="png" %}</p>
+                    
+                </form>
+           </div>
+        </div>
+        <div class="column">
+          Third column
+        </div>
+      </div>
 </body>
 </html>
 
