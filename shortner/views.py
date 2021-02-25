@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import redirect, render, HttpResponse
 from .forms import LinkForm
 from .models import Link
 
@@ -7,11 +7,18 @@ def index(request):
     form = LinkForm(request.POST or None)
 
     if form.is_valid():
-        Long = form.cleaned_data['longLink']
-        Sort = 'http://127.0.0.1:8000/'+'testsort'
-        b = Link(longLink=Long, shortLink=Sort)
+        longLink = form.cleaned_data['longLink']
+        alias = 'testsort1'
+        shortLink = 'http://127.0.0.1:8000/'+alias
+        b = Link(longLink=longLink, shortLink=alias)
         b.save()
         #return HttpResponse(Sort)
-        return render(request,'result.html', {'Long':Long, 'Sort':Sort})
-    #return HttpResponse('Test')
+        return render(request,'result.html', {'longLink':longLink, 'shortLink':shortLink})
+
     return render(request, 'index.html', {'form':form})
+
+def link_destination(request,slink):
+    link = Link.objects.get(shortLink=slink)
+    #return HttpResponse(link.longLink)
+    return redirect(link.longLink)
+

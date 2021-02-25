@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load qr_code %}
-    <title>Document</title>
+    <title>Link Shortner</title>
 </head>
 <body>
     <form action="">
-        <input type="text" value="{{Long}}">
-        <input type="text" value="{{Sort}}">
-        {% qr_from_text "{{Sort}}" size="T" %}
+        <input type="text" value="{{longLink}}">
+        <br>
+        <input type="text" value="{{shortLink}}">
+        <button>Copy</button>
+        <br>
+        {% qr_from_text "{{shortLink}}" size="T" %}
     </form>
 </body>
 </html>
