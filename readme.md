@@ -1,0 +1,1 @@
+![smartmockups_kll230q1](https://user-images.githubusercontent.com/60034035/109185907-a3c2b100-77ba-11eb-9ebf-82bd05db3408.png)
