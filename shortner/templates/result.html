@@ -11,10 +11,18 @@
     <form action="">
         <input type="text" value="{{longLink}}">
         <br>
-        <input type="text" value="{{shortLink}}">
-        <button>Copy</button>
+        <input type="text" id="myvalue" value="{{shortLink}}">
+        <button  type="button" onclick="copyToClipboard()">Copy</button>
         <br>
-        {% qr_from_text "{{shortLink}}" size="T" %}
+        {% qr_from_text "{{shortLink}}" size="M" %}
     </form>
 </body>
 </html>
+
+<script>
+function copyToClipboard() {
+    var textBox = document.getElementById("myvalue");
+    textBox.select();
+    document.execCommand("copy");
+}
+</script>
