@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('<str:slink>', views.link_destination, name='destination'),
+    path('', views.link_shortner, name='link_shortner'),
+    path('<str:slink>', views.link_redirect, name='link_redirect'),
 ]
