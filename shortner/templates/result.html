@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,38 +9,38 @@
     <title>Link Shortner</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
+
 <body>
     <div class="columns is-vcentered">
         <div class="column">
-          First column
+            <!-- First column -->
         </div>
-        <div class="column ">
-            <div class="box">
+        <div class="column mt-10 pt-10">
+            <div class="box mt-10 pt-10">
                 <form action="">
                     <label class="label">Orginal Link</label>
-                    <input  class="input is-primary" type="url"  value="{{longLink}}">
+                    <input class="input is-primary" type="url" value="{{longLink}}">
                     <br>
+                    <label class="label mt-3">Shortner Link</label>
+                    <input class="input is-primary" type="url" id="myvalue" value="{{shortLink}}" readonly>
+                    <button class="button is-light mt-3" type="button" onclick="copyToClipboard()">Copy</button>
                     <br>
-                    <label class="label">Shortner Link</label>
-                    <input  class="input is-primary" type="url"  id="myvalue" value="{{shortLink}}">
-                    <button class="button is-light mt-3"  type="button" onclick="copyToClipboard()">Copy</button>
-                    <br>
-                    <p class="has-text-centered	">{% qr_from_text "{{shortLink}}" size=5 version=3 image_format="png" %}</p>
-                    
+                    <p class="has-text-centered	">{% qr_from_text shortLink size=5 version=3 image_format="png" %}</p>
                 </form>
-           </div>
+            </div>
         </div>
         <div class="column">
-          Third column
+            <!-- Third column -->
         </div>
-      </div>
+    </div>
 </body>
+
 </html>
 
 <script>
-function copyToClipboard() {
-    var textBox = document.getElementById("myvalue");
-    textBox.select();
-    document.execCommand("copy");
-}
+    function copyToClipboard() {
+        var textBox = document.getElementById("myvalue");
+        textBox.select();
+        document.execCommand("copy");
+    }
 </script>
