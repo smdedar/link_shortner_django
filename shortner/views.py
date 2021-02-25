@@ -11,6 +11,7 @@ def index(request):
         Sort = 'http://127.0.0.1:8000/'+'testsort'
         b = Link(longLink=Long, shortLink=Sort)
         b.save()
-        return HttpResponse(Sort)
+        #return HttpResponse(Sort)
+        return render(request,'result.html', {'Long':Long, 'Sort':Sort})
     #return HttpResponse('Test')
     return render(request, 'index.html', {'form':form})
